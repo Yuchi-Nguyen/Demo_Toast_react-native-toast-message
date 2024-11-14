@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Button } from 'react-native';
+import Toast from 'react-native-toast-message';
 
-export default function App() {
+
+const App = () => {
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Thành công!',
+      text2: 'Đây là ví dụ về Toast thành công'
+    });
+  };
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Button title="Hiển thị Toast" onPress={showToast} />
+      <Toast />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App;
